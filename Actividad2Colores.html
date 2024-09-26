@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- para que la página se vea bien en diferentes tamaños de pantalla -->
+    <title>Cambiar Color de Fondo</title> <!-- Título que aparece en la pestaña del navegador -->
+</head>
+<body>
+    <!-- botón  para cambiar el color de fondo -->
+    <button id="cambiarColorBtn">Cambiar color de fondo</button>
+
+    <!-- aqui empieza el código JavaScript que cambiará el color de fondo -->
+    <script>
+        // Este código se ejecuta cuando la página ya carg0
+        window.onload = function() {
+            // Buscamos el botón por su ID (cambiarColorBtn) y le decimos qué hacer cuando lo presionan
+            document.getElementById('cambiarColorBtn').onclick = function() {
+                // Creamos un arreglo llamado 'rgb' para almacenar los valores de color (Rojo, Verde, Azul)
+                var rgb = [0, 0, 0];  // Inicialmente, todos los valores están en 0, lo que significa negro
+
+                // Usamos un ciclo for para llenar el  arreglo con valores ramdomizados
+                for (var i = 0; i < 3; i++) { // Repetimos 3 veces, una por cada color
+                    //el ciclo seguirá mientras i sea menor que 3. se ejecutará para i = 0, i = 1 y i = 2.
+                    //Al final de cada ejecución del ciclo, i se incrementa en 1.
+                    // Generamos un número aleatorio entre 0 y 255 para cada componente de color
+                    // Math.random() genera un número entre 0 y 1, multiplicamos por 256 para que esté entre 0 y 255
+                    // Math.floor() redondea hacia abajo al número entero más cercano para tener un numero entero 
+                    rgb[i] = Math.floor(Math.random() * 256); 
+                }
+
+                // Creamos una cadena de texto que representa el color en formato RGB
+                // Por ejemplo, si rgb[0] = 255, rgb[1] = 100, rgb[2] = 50
+                // Entonces colorAleatorio será 'rgb(255,100,50)'
+                var colorAleatorio = 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
+
+                // Cambiamos el color de fondo de la página al nuevo color aleatorio que acabamos de crear
+                document.body.style.backgroundColor = colorAleatorio; 
+            };
+        };
+    </script>
+</body>
+</html>
+

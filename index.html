@@ -4,6 +4,35 @@
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- para que la página se vea bien en diferentes tamaños de pantalla -->
     <title>Cambiar Color de Fondo</title> <!-- Título que aparece en la pestaña del navegador -->
+    <style>
+        /* Estilos para el cuerpo de la página */
+        body {
+            font-family: 'Arial', sans-serif; /* Fuente del cuerpo de la página */
+            display: flex; /* Flexbox para centrar el contenido */
+            justify-content: center; /* Centra el contenido horizontalmente */
+            align-items: center; /* Centra el contenido verticalmente */
+            height: 100vh; /* La altura del cuerpo ocupa toda la ventana */
+            margin: 0; /* Elimina el margen predeterminado del cuerpo */
+        }
+
+        /* Estilos para el botón */
+        #cambiarColorBtn {
+            padding: 15px 30px; /* Espacio interno del botón */
+            font-size: 18px; /* Tamaño del texto dentro del botón */
+            color: white; /* Color del texto del botón */
+            background-color: #ff758c; /* Color de fondo del botón */
+            border: none; /* Sin borde */
+            border-radius: 10px; /* Bordes redondeados */
+            cursor: pointer; /* Cursor de puntero cuando se pasa sobre el botón */
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Sombra del botón para efecto de profundidad */
+            transition: background-color 0.3s ease; /* Transición suave cuando el color cambia */
+        }
+
+        /* Cambia el color de fondo del botón al pasar el cursor */
+        #cambiarColorBtn:hover {
+            background-color: #e84060; /* Nuevo color de fondo cuando el mouse pasa sobre el botón */
+        }
+    </style>
 </head>
 <body>
     <!-- botón  para cambiar el color de fondo -->
@@ -11,26 +40,20 @@
 
     <!-- aqui empieza el código JavaScript que cambiará el color de fondo -->
     <script>
-        // Este código se ejecuta cuando la página ya carg0
+        // Este código se ejecuta cuando la página ya cargó
         window.onload = function() {
             // Buscamos el botón por su ID (cambiarColorBtn) y le decimos qué hacer cuando lo presionan
             document.getElementById('cambiarColorBtn').onclick = function() {
                 // Creamos un arreglo llamado 'rgb' para almacenar los valores de color (Rojo, Verde, Azul)
                 var rgb = [0, 0, 0];  // Inicialmente, todos los valores están en 0, lo que significa negro
 
-                // Usamos un ciclo for para llenar el  arreglo con valores ramdomizados
+                // Usamos un ciclo for para llenar el arreglo con valores randomizados
                 for (var i = 0; i < 3; i++) { // Repetimos 3 veces, una por cada color
-                    //el ciclo seguirá mientras i sea menor que 3. se ejecutará para i = 0, i = 1 y i = 2.
-                    //Al final de cada ejecución del ciclo, i se incrementa en 1.
                     // Generamos un número aleatorio entre 0 y 255 para cada componente de color
-                    // Math.random() genera un número entre 0 y 1, multiplicamos por 256 para que esté entre 0 y 255
-                    // Math.floor() redondea hacia abajo al número entero más cercano para tener un numero entero 
                     rgb[i] = Math.floor(Math.random() * 256); 
                 }
 
                 // Creamos una cadena de texto que representa el color en formato RGB
-                // Por ejemplo, si rgb[0] = 255, rgb[1] = 100, rgb[2] = 50
-                // Entonces colorAleatorio será 'rgb(255,100,50)'
                 var colorAleatorio = 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
 
                 // Cambiamos el color de fondo de la página al nuevo color aleatorio que acabamos de crear
@@ -40,4 +63,3 @@
     </script>
 </body>
 </html>
-
